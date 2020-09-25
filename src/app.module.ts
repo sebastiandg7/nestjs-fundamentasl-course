@@ -3,6 +3,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CoffeesModule } from './coffees/coffees.module';
+import { CoffeeRatingModule } from './coffee-rating/coffee-rating.module';
+import { DatabaseModule } from './database/database.module';
 
 @Module({
   imports: [
@@ -16,6 +18,15 @@ import { CoffeesModule } from './coffees/coffees.module';
       database: 'postgres',
       autoLoadEntities: true,
       synchronize: true,
+    }),
+    CoffeeRatingModule,
+    DatabaseModule.register({
+      type: 'postgres',
+      host: 'localhost',
+      port: 5432,
+      username: 'postgres',
+      password: 'pass123',
+      database: 'postgres',
     }),
   ],
   controllers: [AppController],
