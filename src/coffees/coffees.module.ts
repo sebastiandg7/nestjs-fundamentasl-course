@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { CoffeeService } from 'src/coffees/services/coffee/coffee.service';
-import { Event } from 'src/events/entities/event.entity';
+import { CoffeeService } from './services/coffee/coffee.service';
+import { Event } from '../events/entities/event.entity';
 import coffeesConfig from './config/coffees.config';
 import { CoffeesController } from './controllers/coffees.controller';
 import { Coffee } from './entities/coffee.entity';
